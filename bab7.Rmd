@@ -1,0 +1,103 @@
+---
+title: "tugascalculusbab7"
+author: "Alfan"
+date: "2022-10-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Bab 7// Derivatif dan diferensiasi
+
+
+jadi, apa itu Derevatif dan Diferensiasi?
+*Derevatif merupakan perjanjian antara keduabelah pihak yang telah disepakati dengan tujuan tertentu
+*Diferensiasi adalah dari kata "Different" yang artinya berbeda , atau sebagai pembeda.
+Seperti halnya semua perhitungan, operator untuk mengambil turunan, mengambil input dan menghasilkan output. Faktanya, dibandingkan dengan banyak operator, cukup sederhana: hanya membutuhkan satu input.D()
+
+Input: ekspresi menggunakan notasi. Contoh: atau atau ~x^2~xsin(x^2)~xy*cos(x)~y
+Di sebelah kiri adalah ekspresi matematika, ditulis dalam notasi R yang benar, yang akan mengevaluasi ke angka ketika nilai numerik tersedia untuk semua jumlah yang dirujuk. Di sebelah kanan adalah variabel sehubungan dengan mana turunan akan diambil. Sama sekali tidak perlu ini disebut atau ; Setiap nama variabel yang valid diperbolehkan.~~xy
+
+Output yang dihasilkan oleh adalah fungsi. Fungsi ini akan mencantumkan sebagai argumen semua variabel yang terkandung dalam ekspresi input. Anda kemudian dapat mengevaluasi fungsi output untuk nilai numerik tertentu dari argumen untuk menemukan nilai fungsi turunan.D()
+
+Misalnya:
+```{r}
+Housing = read.csv("http://www.mosaic-web.org/go/datasets/Income-Housing.csv")
+```
+```{r}
+library(mosaicCalc)
+g <- D(5/x^2 ~ x)
+g
+```
+====Rumus dan Perbedaan Numerik====
+Ketika ekspresi relatif sederhana dan terdiri dari fungsi matematika dasar, akan sering mengembalikan fungsi yang berisi rumus matematika. Misalnya, dalam contoh di atasD()
+```{r}
+g (1)
+```
+```{r}
+my_function <- function (x) {
+  return(x^2)
+}
+my_function
+```
+
+```{r}
+g <- D(my_function(x) ~ x)
+g(3)
+```
+Untuk ekspresi input lainnya, akan mengembalikan fungsi yang didasarkan pada perkiraan numerik ke turunan — Anda tidak dapat ''melihat" turunannya, tetapi ada di dalam metode perkiraan numerik:D()
+```{r}
+h <- D(sin(abs(x - 3) ) ~ x)
+h
+```
+ ====Parameter Simbolik===
+Anda dapat menyertakan parameter simbolik dalam ekspresi yang dimasukkan ke , misalnya:D()
+
+```{r}
+s2 <- D(A  * sin(2 * pi * t / P) + C ~ t)
+s2
+```
+Fungsi yang dibuat akan berfungsi seperti fungsi matematika lainnya, tetapi Anda perlu menentukan nilai numerik untuk parameter simbolik ketika Anda mengevaluasi fungsi:s2()
+```{r}
+s2( t=3, A=2, P=10, C=4 )
+```
+```{r}
+slice_plot(s2(t, A=2, P=10, C=4) ~ t, 
+           domain(t=range(0,20)))
+```
+===== Derivatif Parsial ======
+Turunan yang dihitung oleh adalah turunan parsial. Artinya, mereka adalah turunan di mana variabel di sisi kanan diubah dan semua variabel lainnya dianggap konstan.D( )~
+
+========= Turunan kedua ============
+Turunan kedua hanyalah turunan dari turunan. Anda dapat menggunakan operator dua kali untuk menemukan turunan kedua, seperti ini.D( )
+```{r}
+
+df <- D(sin(x) ~ x)
+ddf <- D(df(x) ~ x)
+another.ddf <- D(sin(x) ~ x & x)
+```
+
+
+
