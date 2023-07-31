@@ -1,4 +1,8 @@
 Rencana Konten Saya
 video animasi 
+*Golang
+*Python
+*Javascript
 Video hiburan
 bikin vlog
+*java
