@@ -1,6 +1,9 @@
 Rencana Konten Saya
 video animasi 
-* pakai flipaclip
-*AI generate Image
+*Golang
+*Python
+*Javascript
+
 Video hiburan
 bikin vlog
+*java
